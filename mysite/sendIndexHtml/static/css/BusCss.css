@@ -4,6 +4,36 @@ body{
   padding: 0px;
 }
 
+#preloader{
+position: fixed;
+left: 0;
+top: 0;
+right:0;
+bottom:0;
+background: #ffffff;
+z-index: 30;}
+
+.contpre{
+width: 250px;
+height: 100px;
+position: absolute;
+left: 50%;top: 48%;
+margin-left:-125px;
+margin-top:-75px;
+color:#fff;
+font-size:40px;
+letter-spacing:-2px;
+text-align:center;
+line-height:35px;}
+
+#preloader .status {
+position: absolute;
+width: 280px;
+height: 280px;
+background: url(../images/status.gif) center center no-repeat;
+background-size:280px;
+margin: -100px 0 0 -140px;}
+
 
 #mainContent{
   width: 100%;
