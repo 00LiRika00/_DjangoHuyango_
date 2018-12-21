@@ -91,7 +91,6 @@
 
 			<div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
 				<ul class="nav navbar-nav">
-
 					<li class="menuItem"><a href="#useit">Обо мне</a></li>
           <li class="menuItem"><a href="#whatis">Фотосессии</a></li>
 					<li class="menuItem"><a href="#screen">Портфолио</a></li>
@@ -116,7 +115,10 @@
 
                 <div class="col-sm-6 wow fadeInLeftBig"  data-animation-delay="200">
                     <h3 class="section-heading">Добро пожаловать!</h3>
-					<div class="sub-title lead3">Рада приветствовать Вас на моем сайте. Меня зовут Даша и я занимаюсь фотографией с 2016 года. Я люблю свою профессию за то, что она дает мне возможность дарить людям эмоции и воспоминания, которые будут оставаться с ними долгие годы. Готовы сохранить их в своей памяти? Тогда Вы можете связаться со мной по ниже указанному телефону и забронировать фотосессию. Буду рада запечатлеть самые важные моменты Вашей жизни!</div>
+					<div class="sub-title lead3">
+            {% block content %}
+            {% endblock %}
+            Рада приветствовать Вас на моем сайте. Меня зовут Даша и я занимаюсь фотографией с 2016 года. Я люблю свою профессию за то, что она дает мне возможность дарить людям эмоции и воспоминания, которые будут оставаться с ними долгие годы. Готовы сохранить их в своей памяти? Тогда Вы можете связаться со мной по ниже указанному телефону и забронировать фотосессию. Буду рада запечатлеть самые важные моменты Вашей жизни!</div>
                     <p class="lead"></p>
 					 <p><a class="btn btn-embossed btn-primary" href="#" role="button">View Details</a>
 					 <a class="btn btn-embossed btn-info" href="#" role="button">Visit Website</a></p>

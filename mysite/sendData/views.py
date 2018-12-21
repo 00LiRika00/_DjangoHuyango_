@@ -12,5 +12,5 @@ class List(TemplateView):
         ctx = {
             "all_person": all_person
         }
-        
+
         return render(request, self.template_name, ctx)
