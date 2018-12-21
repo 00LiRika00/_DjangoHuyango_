@@ -1,0 +1,225 @@
+body{
+  background-image: url("grayBG.jpg");
+  margin: 0px;
+  padding: 0px;
+}
+
+
+#mainContent{
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  z-index: 1;
+}
+
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: gray;
+}
+
+.classDomColor{
+  color: #333333;
+}
+
+#logo{
+  float: left;
+  width: 200px;
+  height: 150px;
+}
+
+#logoTitle{
+  text-align: center;
+}
+
+#headContent{
+  margin-left:20%;
+  font-size: 35px;
+  font-style: oblique;
+  color: rgba(250, 250, 250, 1);
+  z-index: 2;
+  width: 60%;
+  height: 150px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-bottom: 1px solid black;
+  display: block;
+}
+
+#content1{
+
+  font: 255 20px 'Roboto', sans-serif;
+  color: white;
+  margin-left:20%;
+  background: rgba(0, 0, 0, 0.5);
+  height: 100px;
+  z-index: 2;
+  width: 60%;
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-bottom: 1px solid black;
+  display: block;
+}
+
+.headButton{
+  margin-left: 3.5%;
+  margin-top: 10px;
+  width: 20%;
+  height: 75%;
+  background-color: rgba(250, 250, 250, 0.3);
+  color: rgba(250, 250, 250, 1);
+  border-bottom: 2px solid rgba(250, 250, 250, 1);
+  font: 255 25px 'Roboto', sans-serif;
+  text-align: center;
+  display: inline-block;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.headButtonHover:hover{
+  border-bottom: 3px solid #333333;
+  color: #333333;
+}
+
+.headButtonClick:active{
+  font-size: 23px;
+}
+
+.dropdown {
+}
+
+.dropdown-child {
+    z-index: 4;
+    display: none;
+    padding: 15px 0px;
+    font: 255 25px 'Roboto', sans-serif;
+    text-align: center;
+    background-color: rgba(250, 250, 250, 0.3);
+    width: 100%;
+}
+
+.dropdown:hover{
+  border-bottom: 3px solid #333333;
+}
+
+.dropdown:hover .dropdown-child {
+  display: table;
+}
+
+.content{
+
+  font: 255 25px 'Roboto', sans-serif;
+  color: white;
+  margin-left:20%;
+  background: rgba(0, 0, 0, 0.5);
+  height: 400px;
+  z-index: 2;
+  width: 60%;
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-bottom: 1px solid black;
+  display: block;
+}
+
+#content2{
+  background-color: #c4c4c4;
+}
+
+#content3{
+  background-color: #b7b7b7;
+}
+#content4{
+  background-color: #7e7e7e; #b7b7b7 #7e7e7e #4b4b4b
+}
+
+#footer{
+  background-color: #4b4b4b;
+}
+
+#bus1{
+  margin-top: 2%;
+  margin-left: 2%;
+  border: 1px solid rgba(0, 0, 0, 0);
+  z-index: 3;
+}
+
+#bus2{
+  margin-top: 2%;
+  margin-left: 6%;
+  border: 1px solid rgba(0, 0, 0, 0);
+  z-index: 3;
+}
+
+
+
+#registerLoginDiv{
+  margin-left: 55%;
+  width: 40%;
+}
+
+.regLogButton{
+  width: 49%;
+  margin-top: 10%;
+  height: 15%;
+  background-color: rgba(250, 250, 250, 0.3);
+  color: rgba(250, 250, 250, 1);
+  border-bottom: 2px solid rgba(250, 250, 250, 1);
+  font: 255 25px 'Roboto', sans-serif;
+  text-align: center;
+  display: inline-block;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.regLogButtonClick:active{
+  color: rgba(0, 0, 0, 1);
+  border-bottom: 2px solid rgba(0, 0, 0, 0);
+}
+
+#registerForm{
+  background-color: rgba(250, 250, 250, 0.3);
+  display: block;
+}
+
+#loginForm{
+  background-color: rgba(250, 250, 250, 0.3);
+  display: none;
+}
+
+.regFormInput{
+  margin-top: 5%;
+  margin-left: 10%;
+  margin-bottom: 5%;
+  width: 80%;
+  height: 7%;
+  z-index: 3;
+}
+
+#login{
+
+}
+
+#password{
+
+}
+
+#email{
+
+}

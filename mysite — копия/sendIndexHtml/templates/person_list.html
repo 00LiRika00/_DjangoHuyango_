@@ -1,0 +1,7 @@
+<html>
+  {% block content %}
+    {% for person in all_person %}
+    <p>Age: {{person.age}} Name: {{person.name}}</p>
+    {% endfor %}
+  {% endblock %}
+</html>
