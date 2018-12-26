@@ -420,15 +420,16 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3 text-center wrap_title">
-        {%if user.is_authenticated%}
 
-          {% block content %}
-          <h1>New post</h1>
-             <form method="POST">{% csrf_token %}
-                 {{ form.as_p }}
-                 <button type="submit">Save</button>
-             </form>
-          {%endblock%}
+        {%if user.is_authenticated%}
+        
+          {% for person in all_person %}
+            <p>Author: {{person.author}}</p></br>
+            <p>Title: {{person.title}}</p></br>
+            <p>Text: {{person.text}}</p></br>
+            <p>date: {{person.created_date}}</p>
+            <p>__________________________________________________________</p>
+          {% endfor %}
 
         {%else%}
   				<h2>Отзывы</h2>

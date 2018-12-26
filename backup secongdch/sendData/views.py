@@ -30,4 +30,4 @@ def post(request):
             return redirect('/')
     else:
         form = PostForm()
-    return render(request, 'index.html', {'form': form})
+    return render(request, 'post_edit.html', {'form': form})
