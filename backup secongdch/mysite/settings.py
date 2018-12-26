@@ -26,7 +26,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'sendIndexHtml',
-    'sendData'
+    'sendData',
+    'registration'
 ]
 
 MIDDLEWARE = [
@@ -66,7 +67,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': '/Users/_ria_go_/Desktop/kursach2/_DjangoHuyango_/mysite/sqlite3.db',
+        'NAME': 'C:/Users/sergi/Desktop/DjangoProject1/_DjangoHuyango_/backup secongdch/sqlite3.db',
     }
 }
 

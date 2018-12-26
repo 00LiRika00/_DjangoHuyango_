@@ -12,7 +12,12 @@
     <meta name="description" content="Flatfy Free Flat and Responsive HTML5 Template ">
     <meta name="author" content="">
 
-    <title>RIA PHOTOGRAPHY</title>
+    {%if user.is_authenticated%}
+      <title>Ria logined</title>
+      {%else%}
+      <title>Ria</title>
+    {%endif%}
+
 
     <!-- Bootstrap core CSS -->
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
@@ -48,11 +53,10 @@
 	<!--[if lt IE 9]>
 		<script src="js/html5shiv.js"></script>
 	<![endif]-->
-
 </head>
 
 <body id="home">
-
+    <a name="top"></a>
 	<!-- Preloader -->
 	<div id="preloader">
 		<div id="status"></div>
@@ -100,6 +104,13 @@
 					<li class="menuItem"><a href="#screen">Портфолио</a></li>
 					<li class="menuItem"><a href="#credits">Цены</a></li>
 					<li class="menuItem"><a href="#contact">Контакты</a></li>
+          {%if user.is_authenticated%}
+            <li class="menuItem"><a href="/logout/#top">Выйти</a></li>
+            {%else%}
+            <li class="menuItem"><a href="/reg/#headline">Регистрация</a></li>
+            <li class="menuItem"><a href="/log/#headline">Войти</a></li>
+          {%endif%}
+
 				</ul>
 			</div>
 
@@ -409,38 +420,66 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3 text-center wrap_title">
-				<h2>Отзывы</h2>
-				<p class="lead" style="margin-top:0">Зарегистрируйтесь, чтоб оставить свой</p>
+        {%if user.is_authenticated%}
+
+          {% block content %}
+          <h1>New post</h1>
+             <form method="POST">{% csrf_token %}
+                 {{ form.as_p }}
+                 <button type="submit">Save</button>
+             </form>
+          {%endblock%}
+
+        {%else%}
+  				<h2>Отзывы</h2>
+  				<p class="lead" style="margin-top:0">Зарегистрируйтесь, чтоб оставить свой</p>
+        {%endif%}
 			 </div>
 			</div>
 		</div>
 	</div>
 
-	<!-- Contact -->
+
+  {%if user.is_authenticated%}
+  {%else%}
 	<div id="contact" class="content-section-a">
 		<div class="container">
 			<div class="row">
         <div class = "content" id = "footer">
+          <a name="headline"></a>
           <div id="registerLoginDiv" class="formfr">
 
-              <div id = "loginButton" class = "regLogButton regLogButtonClick text-center" onclick = "hide('registerForm', 'loginForm');"><p>Вход</p></div>
-              <div id = "regButton" class = "regLogButton regLogButtonClick text-center" onclick= "hide('loginForm', 'registerForm');"><p>Регистрация</p></div>
-              <form id = "registerForm">
-                <input class = "regFormInput input-group form-control" id = "login" placeholder="Login"></input></br>
+              <div id = "loginButton" class = "regLogButton regLogButtonClick text-center" onclick = "hide('registerForm', 'loginForm'); window.location.href = '/log/#headline'"><p>Вход</p></div>
+              <div id = "regButton" class = "regLogButton regLogButtonClick text-center" onclick= "hide('loginForm', 'registerForm'); window.location.href = '/reg/#headline'"><p>Регистрация</p></div>
+
+              <form id = "registerForm" action="" method="post">
+              <!--  <input class = "regFormInput input-group form-control" id = "login" placeholder="Login"></input></br>
                 <input class = "regFormInput input-group form-control" id = "password" placeholder="Password"></input></br>
                 <input class = "regFormInput input-group form-control" id = "email" placeholder = "Email"></input></br>
+              -->
+                {% csrf_token %}
+                {{ form.as_p }}
                 <input type = "submit" class = "regFormInput btn tada btn-embossed btn-primary pull-right" value = "Register"></input>
+
+
               </form>
-              <form id = "loginForm">
+              <form id = "loginForm" action="" method="post">
+                <!--
                 <input class = "regFormInput input-group form-control" id = "email" placeholder = "Email"></input></br>
                 <input class = "regFormInput input-group form-control" id = "password" placeholder = "Password"></input></br>
+                -->
+                {% csrf_token %}
+                {{ form.as_p }}
                 <input type="submit" class = "regFormInput btn tada btn-embossed btn-primary pull-right" value = "Login"></input>
+
+
               </form>
           </div>
         </div>
         </div>
       </div>
     </div>
+    {% endif %}
 			<!--
       <div class="col-md-6 col-md-offset-3 text-center wrap_title">
 				<h2>Contact Us</h2>
@@ -564,6 +603,8 @@
 	<script src="{% static 'js/uiMorphingButton_inflow.js' %}"></script>
 	<!-- Magnific Popup core JS file -->
 	<script src="{% static 'js/jquery.magnific-popup.js' %}"></script>
+
+
 </body>
 
 </html>

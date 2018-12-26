@@ -1,7 +1,9 @@
-{% extends 'index/index.html' %}
-
 {% block content %}
+    <p>Hello</p>
     {% for person in all_person %}
-    <p>Age: {{person.age}} Name: {{person.name}}</p>
+    <p>Author: {{person.author}}</p></br>
+    <p>Title: {{person.title}}</p></br>
+    <p>Text: {{person.text}}</p></br>
+    <p>date: {{person.created_date}}</p>
     {% endfor %}
 {% endblock %}
