@@ -25,7 +25,7 @@ body, html {
 .content-section-c {
 	border-top: 1px solid #32465A;
 	border-bottom: 1px solid #32465A;
-	background-color: #34495e;
+	background-color:#9a889c;
 	padding: 90px 0;
 }
 
@@ -321,8 +321,9 @@ color: #ECEBEB;
 .banner {
 	padding: 100px 0;
 	color: #f8f8f8;
-	background: url(../img/intro/banner-bg.gif) no-repeat center center;
+	/*background: url(../img/intro/banner-bg.gif) no-repeat center center; */
 	background-size: cover;
+	background-color: #9a889c;
 }
 /* Animate */
 .rotate{
