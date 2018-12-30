@@ -25,7 +25,7 @@ body, html {
 .content-section-c {
 	border-top: 1px solid #32465A;
 	border-bottom: 1px solid #32465A;
-	background-color:#9a889c;
+	background-color: #34495e;
 	padding: 90px 0;
 }
 
@@ -321,9 +321,8 @@ color: #ECEBEB;
 .banner {
 	padding: 100px 0;
 	color: #f8f8f8;
-	/*background: url(../img/intro/banner-bg.gif) no-repeat center center; */
+	background: url(../img/intro/banner-bg.gif) no-repeat center center;
 	background-size: cover;
-	background-color: #9a889c;
 }
 /* Animate */
 .rotate{
@@ -371,12 +370,13 @@ color: #ECEBEB;
 .content-style-form form p {
 	margin: 0 0 5px 0;
 	font-size: 0.7em;
+	color: #575757;
 }
 
 .content-style-form label {
 	display: block;
 	padding: 10px 0 0;
-	color: #34495e;
+	color: #84688c;
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	font-weight: bold;
@@ -388,7 +388,7 @@ color: #ECEBEB;
 	width: 100%;
 	border: 2px solid #ebd3bd;
 	background: transparent;
-	color: #b09a86;
+	color:#575757;
 	font-weight: 300;
 	font-size: 2.2em;
 }
@@ -502,7 +502,7 @@ color: #ECEBEB;
 .content-style-form-4 form {
 	padding: 30px;
 	background: #fff;
-	color: #ccb096;
+	color: #575757;
 	font-size: 1.5em;
 	-webkit-perspective: 1000px;
 	perspective: 1000px;
@@ -530,6 +530,7 @@ color: #ECEBEB;
 	transform: rotateX(-45deg);
 	-webkit-transform-origin: center top;
 	transform-origin: center top;
+	color: #575757;
 }
 
 .morph-button.open .content-style-form-4 p {

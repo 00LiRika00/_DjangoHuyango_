@@ -1,14 +1,19 @@
+{%if user.is_authenticated%}
+  <p>Alredy authenticated<p>
+{%else%}
 <!DOCTYPE html>
 <html>
   <head>
     <title>registration</title>
   </head>
   <body>
-    <form action="" method="post">
+    <form method="post" action="/reg/">
       {% csrf_token %}
       {{ form.as_p }}
-      <button type="submit">Sign up</button>
+      
+      <button type="submit" class = "regFormInput btn tada btn-embossed btn-primary pull-right">Sign up</button>
 
     </form>
   </body>
 </html>
+{%endif%}

@@ -1,7 +1,11 @@
 {% block content %}
-<h1>New post</h1>
-   <form method="POST">{% csrf_token %}
+{%if user.is_authenticated%}
+  <h1>New post</h1>
+   <form method="POST" action="/post">{% csrf_token %}
        {{ form.as_p }}
        <button type="submit">Save</button>
    </form>
+{%else%}
+  <p>Please sign in</p>
+{%endif%}
 {%endblock%}

@@ -6,7 +6,7 @@ from django.shortcuts import redirect
 from django.utils import timezone
 
 class List(TemplateView):
-    template_name = "index.html"
+    template_name = "person_list.html"
 
     def get(self, request):
         all_person = Person.objects.all();
@@ -20,14 +20,16 @@ class List(TemplateView):
 
 
 def post(request):
+    print("Debug1");
     if request.method == "POST":
+        print("Debug");
         form = PostForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
             post.published_date = timezone.now()
             post.save()
-            return redirect('/')
+        return redirect('/')
     else:
         form = PostForm()
     return render(request, 'post_edit.html', {'form': form})

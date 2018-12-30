@@ -53,7 +53,9 @@
 	<!--[if lt IE 9]>
 		<script src="js/html5shiv.js"></script>
 	<![endif]-->
+  <script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
 </head>
+
 
 <body id="home">
     <a name="top"></a>
@@ -121,10 +123,11 @@
     <div id ="useit" class="content-section-a">
 
         <div class="container">
-<br>
+
             <div class="row">
 
 				<div class="col-sm-6 pull-right wow fadeInRightBig">
+          <br>
                     <img class="img-responsive " src="{% static 'img/photogr.jpg' %}" alt="">
                 </div>
 
@@ -288,7 +291,6 @@
 					</div>
 				</a>
 
-
                <a href="{% static 'img/slide/2.png' %}" class="image-link">
 					<div class="item">
 						<img  class="img-responsive img-rounded" src="{% static 'img/slide/2.png' %}" alt="Owl Image">
@@ -301,30 +303,23 @@
 					</div>
 				</a>
 
-				<a href="{% static 'img/slide/1.png' %}" class="image-link">
-					<div class="item">
-						<img  class="img-responsive img-rounded" src="{% static 'img/slide/1.png' %}" alt="Owl Image">
-					</div>
-				</a>
-
-        <a href="{% static 'img/slide/4.png' %}" class="image-link">
+				<a href="{% static 'img/slide/4.png' %}" class="image-link">
 					<div class="item">
 						<img  class="img-responsive img-rounded" src="{% static 'img/slide/4.png' %}" alt="Owl Image">
 					</div>
 				</a>
 
-        <a href="{% static 'img/slide/5.png' %}" class="image-link">
+               <a href="{% static 'img/slide/5.png' %}" class="image-link">
 					<div class="item">
 						<img  class="img-responsive img-rounded" src="{% static 'img/slide/5.png' %}" alt="Owl Image">
 					</div>
 				</a>
 
-        <a href="{% static 'img/slide/6.png' %}" class="image-link">
+				<a href="{% static 'img/slide/6.png' %}" class="image-link">
 					<div class="item">
 						<img  class="img-responsive img-rounded" src="{% static 'img/slide/6.png' %}" alt="Owl Image">
 					</div>
 				</a>
-
               </div>
           </div>
         </div>
@@ -348,28 +343,36 @@
 								<div>
 									<div class="content-style-form content-style-form-4 ">
 										<h2 class="morph-clone">Детальнее</h2>
-										<form>
-											<div class="uCalc_106002"></div>
-                      <div class="uCalc_106002"></div>
-                      <script>
-                          var widgetOptions106002 = {
-                              bg_color: "transparent"
-                          };
-                          (function() {
-                              var a = document.createElement("script"), h = "head";
-                              a.async = true;
-                              a.src = (document.location.protocol == "https:" ? "https:" : "http:") + "//ucalc.pro/api/widget.js?id=106002&t="+Math.floor(new Date()/18e5);
-                              document.getElementsByTagName(h)[0].appendChild(a)
-                          })();
+                      <div>
+                        <form>
+                        {%if user.is_authenticated%}
+                        <div class="uCalc_106002"></div>
+                        <script> var widgetOptions106002 = { bg_color: "transparent" };
+                        (function() { var a = document.createElement("script"), h = "head";
+                        a.async = true; a.src = (document.location.protocol == "https:" ? "https:" : "http:") + "//ucalc.pro/api/widget.js?id=106002&t="+Math.floor(new Date()/18e5);
+                        document.getElementsByTagName(h)[0].appendChild(a) })();
                       </script>
-										</form>
+                      {%endif%}
+                      <p style="color: #575757; text-align: justify;">Обратите, пожалуйста, внимание на некоторые правила записи и дополнительную информацию о фотосессии:
+​<br> 
+<br> • Бронирование фотосессии производится по предоплате 20%, оставшиеся 80% в день съемки.  (Бронирование фотосессии в студии по предоплате 50%)
+<br> • Дата съёмки обсуждается с фотографом заранее!
+<br> • Съёмку можно отменить/перенести не менее чем за день до фотосессии (для студии - не менее чем за 3 дня), в противном случае внесённая предоплата не возвращается.
+<br> • В случае опоздания на съёмку время не прибавляется и оплата осуществляется в полном размере!
+<br> • Фотографии будут готовы в течение 3-5 недель  в зависимости от выбранного пакета и загруженности фотографа.
+<br> • Доставка заказа: курьером, укр почтой / НП или в виде ссылки на google drive (зависит от выбранного пакета).
+<br> • Для съёмки в студии все модели обязательно должны иметь чистую (!) сменную обувь(  или находится в зале без нее). Прочие правила съёмки в студии на сайте выбранной студии.
+<br> • Фотограф оставляет за собой право публикации фото в своем портфолио, в случае запрета к исходной стоимости + 500 грн! (Фотографа необходимо предупредить)
+<br> • Все права на фотографии принадлежат автору, без согласия и ссылки на источник распространение и копирование запрещены!<p>
+                      </form>
+                      </div>
 									</div>
 								</div>
 							</div>
 						</div>
 				</div>
 			</div>
-			</div>>
+			</div>
 		</div>
 	</div>
 
@@ -440,16 +443,20 @@
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3 text-center wrap_title">
 
-        {%if user.is_authenticated%}
 
-          {% for person in all_person %}
-            <p>Author: {{person.author}}</p></br>
-            <p>Title: {{person.title}}</p></br>
-            <p>Text: {{person.text}}</p></br>
-            <p>date: {{person.created_date}}</p>
-            <p>__________________________________________________________</p>
-          {% endfor %}
-          <a href="/post">Оставить отзыв</a>
+
+          <div id="responceList" style = "color: black;"><p>123</p></div>
+
+
+        {%if user.is_authenticated%}
+          <script type="text/javascript">
+            window.onload = function(){
+              $(contentArea).load('http://localhost:8000/post');
+              $(responceList).load('http://localhost:8000/list');
+            };
+          </script>
+
+          <div id="contentArea" style = "color: black;"></div>
         {%else%}
   				<h2>Отзывы</h2>
   				<p class="lead" style="margin-top:0">Зарегистрируйтесь, чтоб оставить свой</p>
@@ -460,8 +467,19 @@
 	</div>
 
 
+
+
   {%if user.is_authenticated%}
   {%else%}
+
+  <script type="text/javascript">
+    window.onload = function(){
+      $(responceList).load('http://localhost:8000/list');
+      $(registerForm).load('http://localhost:8000/reg');
+      $(loginForm).load('http://localhost:8000/log');
+    };
+  </script>
+
 	<div id="contact" class="content-section-a">
 		<div class="container">
 			<div class="row">
@@ -469,37 +487,20 @@
           <a name="headline"></a>
           <div id="registerLoginDiv" class="formfr">
 
-              <div id = "loginButton" class = "regLogButton regLogButtonClick text-center" onclick = "hide('registerForm', 'loginForm'); window.location.href = '/log/#headline'"><p>Вход</p></div>
-              <div id = "regButton" class = "regLogButton regLogButtonClick text-center" onclick= "hide('loginForm', 'registerForm'); window.location.href = '/reg/#headline'"><p>Регистрация</p></div>
+              <div id = "loginButton" class = "regLogButton regLogButtonClick text-center" onclick = "hide('registerForm', 'loginForm');"><p>Вход</p></div>
+              <div id = "regButton" class = "regLogButton regLogButtonClick text-center" onclick= "hide('loginForm', 'registerForm');"><p>Регистрация</p></div>
 
-              <form id = "registerForm" action="" method="post">
-              <!--  <input class = "regFormInput input-group form-control" id = "login" placeholder="Login"></input></br>
-                <input class = "regFormInput input-group form-control" id = "password" placeholder="Password"></input></br>
-                <input class = "regFormInput input-group form-control" id = "email" placeholder = "Email"></input></br>
-              -->
-                {% csrf_token %}
-                {{ form.as_p }}
-                <input type = "submit" class = "regFormInput btn tada btn-embossed btn-primary pull-right" value = "Register"></input>
+              <div id="registerForm" style = "color: black;"></div>
+              <div id="loginForm" style = "color: black;"></div>
 
-
-              </form>
-              <form id = "loginForm" action="" method="post">
-                <!--
-                <input class = "regFormInput input-group form-control" id = "email" placeholder = "Email"></input></br>
-                <input class = "regFormInput input-group form-control" id = "password" placeholder = "Password"></input></br>
-                -->
-                {% csrf_token %}
-                {{ form.as_p }}
-                <input type="submit" class = "regFormInput btn tada btn-embossed btn-primary pull-right" value = "Login"></input>
-
-
-              </form>
           </div>
         </div>
         </div>
       </div>
     </div>
     {% endif %}
+
+
 			<!--
       <div class="col-md-6 col-md-offset-3 text-center wrap_title">
 				<h2>Contact Us</h2>
@@ -604,7 +605,7 @@
 
 	</script>
 
-  <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> -->
+  <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>-->
   <script>
   document.getElementById("registerForm").style.display = "none";
   document.getElementById("loginForm").style.display = "block";
