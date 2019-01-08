@@ -10,6 +10,9 @@ class Person(models.Model):
         published_date = models.DateTimeField(
                 blank=True, null=True)
 
+        def __unicode__(self):
+            return self.name
+
 
 
 # Create your models here.

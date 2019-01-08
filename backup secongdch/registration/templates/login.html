@@ -8,9 +8,16 @@
   </head>
   <body>
     <form method="post" action="/log/">
+      <script>
+        function setPlaceholderLog() {
+          document.getElementById("id_username").placeholder = "Имя Пользователя";
+          document.getElementById("id_password").placeholder = "Пароль";
+        }
+        setPlaceholderLog();
+      </script>
       {% csrf_token %}
       {{ form.as_p }}
-      <button type="submit" class = "regFormInput btn tada btn-embossed btn-primary pull-right">Sign in</button>
+      <button type="submit" class = "regFormInput btn tada btn-embossed btn-primary pull-right">Войти</button>
 
     </form>
   </body>

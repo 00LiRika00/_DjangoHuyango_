@@ -4,14 +4,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>registration</title>
+    <title>Registration</title>
   </head>
   <body>
     <form method="post" action="/reg/">
+      <script>
+        function setPlaceholderReg() {
+          document.getElementById("id_username").placeholder = "Имя Пользователя";
+          document.getElementById("id_password1").placeholder = "Пароль";
+          document.getElementById("id_password2").placeholder = "Подтвердите пароль";
+        }
+        setPlaceholderReg();
+      </script>
       {% csrf_token %}
       {{ form.as_p }}
-      
-      <button type="submit" class = "regFormInput btn tada btn-embossed btn-primary pull-right">Sign up</button>
+
+      <button type="submit" class = "regFormInput btn tada btn-embossed btn-primary pull-right">Зарегистрироваться</button>
 
     </form>
   </body>

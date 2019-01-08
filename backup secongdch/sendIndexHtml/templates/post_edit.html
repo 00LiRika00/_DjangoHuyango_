@@ -1,10 +1,28 @@
+{% load static %}
 {% block content %}
 {%if user.is_authenticated%}
-  <h1>New post</h1>
-   <form method="POST" action="/post">{% csrf_token %}
-       {{ form.as_p }}
-       <button type="submit">Save</button>
-   </form>
+
+<html>
+<head>
+<link href="{% static 'css/form.css' %}" rel="stylesheet">
+</head>
+   <form class="regfor" method="POST" action="/post">{% csrf_token %}
+  <!-- div class="group">
+    <input type="text"><span class="highlight"></span><span class="bar"></span>
+    <label>Заголовок</label>
+  </div>
+  <div class="group">
+    <input type="text"><span class="highlight"></span><span class="bar"></span>
+    <label>Отзыв</label>
+  </div -->
+  {{ form.as_p }}
+  <button type="submit" class="button buttonBlue">Отправить
+    <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+  </button>
+</form>
+
+<script type="text/javascript" src="{% static 'js/form.js' %}"></script>
+</html>
 {%else%}
   <p>Please sign in</p>
 {%endif%}

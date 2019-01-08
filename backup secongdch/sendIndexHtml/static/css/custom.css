@@ -102,7 +102,7 @@ pre.pre-show{
 padding: 8px 12px;
 }
 
-.wrap_title{margin-bottom: 30px;}
+.wrap_title{margin-bottom: 0px;}
 
 /*  Owl */
 #owl-demo .item{
@@ -116,7 +116,7 @@ padding: 8px 12px;
 /* Footer */
 
 #footer{
-	background: #f3f3f3;
+	/* background: #f3f3f3; */
 	text-align: center;
 	padding: 50px;
 }

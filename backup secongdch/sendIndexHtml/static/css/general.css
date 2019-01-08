@@ -25,7 +25,9 @@ body, html {
 .content-section-c {
 	border-top: 1px solid #32465A;
 	border-bottom: 1px solid #32465A;
-	background-color: #34495e;
+	color: #f8f8f8;
+	background: url(../img/intro/banner-bg-1.jpg) no-repeat center center;
+	background-size: cover;
 	padding: 90px 0;
 }
 
@@ -182,7 +184,7 @@ width: 50px;
 	-moz-border-radius: 35px;
 	border-radius: 100%;
 	padding: 47px 10px;
-	background-color: #f0f1ec;
+	background-color: #818699;
 	color: #034b81;
 	text-align: center;
 	-webkit-transition: all 0.3s;
@@ -192,7 +194,7 @@ width: 50px;
 }
 
 .box-icon:hover {
-	background-color: #c9c9c9;
+	background-color: #ebcce6;
 	color: #fff;
 }
 
@@ -298,7 +300,7 @@ color: #ECEBEB;
 }
 
 .content-section-a {
-	background-color: #f8f8f8;
+	/* background-color: #f8f8f8; */
 	padding: 0;
 }
 
@@ -319,9 +321,9 @@ color: #ECEBEB;
 }
 
 .banner {
-	padding: 100px 0;
+	padding: 0px 0;
 	color: #f8f8f8;
-	background: url(../img/intro/banner-bg.gif) no-repeat center center;
+	background: url(../img/intro/banner-bg.jpg) no-repeat center center;
 	background-size: cover;
 }
 /* Animate */
@@ -902,7 +904,7 @@ color: #ECEBEB;
 
 .morph-button-inflow-1 .morph-content .morph-clone {
 	color: #FFFFFF;
-	background: #c9c9c9;
+	background: #bb9cbb;
 }
 
 .morph-button-inflow-2 {

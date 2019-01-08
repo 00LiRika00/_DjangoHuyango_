@@ -1,10 +1,89 @@
+{% load static %}
+<!doctype html>
 <html>
+<!-- <div>
   {% for person in all_person %}
-    <div style = "border: 1px solid black; font-size: 30px;">
+    <div style = "border: 1px solid white; font-size: 30px;">
       <p>Author: {{person.author}}</p></br>
       <p>Title: {{person.title}}</p></br>
       <p>Text: {{person.text}}</p></br>
       <p>date: {{person.created_date}}</p>
     </div>
   {% endfor %}
+</div> -->
+<head>
+<link href="{% static 'css/review.css' %}" rel="stylesheet">
+<!--link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"-->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<!--script src="//code.jquery.com/jquery-1.11.1.min.js"></script-->
+<!------ Include the above in your HEAD tag ---------->
+
+<!-- Head tags to include FontAwesome -->
+<head>
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+</head>
+
+
+    <div class='col-md-offset-5my col-md-8'>
+      <br><br><br>
+    <h2 style="color: #ffffff; text-shadow: 1px 1px 0 #626b76;">       Отзывы</h2>
+    <br>
+    </div>
+
+    <div class='col-md-offset-5my col-md-8'  style="background-color: rgba(0, 0, 0, 0.2);">
+      <div class="carousel slide" data-ride="carousel" id="quote-carousel">
+        <!-- Bottom Carousel Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#quote-carousel" data-slide-to="0" class="active"></li>
+          <li data-target="#quote-carousel" data-slide-to="1"></li>
+          <li data-target="#quote-carousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Carousel Slides / Quotes -->
+        <div class="carousel-inner">
+
+          <!-- Quote 1 -->
+          <div class="item active">
+            <blockquote>
+              <div class="row">
+                <div class="col-sm-3 text-center">
+                  <img class="img-circle" src="http://lorempixel.com/128/128/abstract" style="width: 100px;height:100px;">
+                  <!--<img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/128.jpg" style="width: 100px;height:100px;">-->
+                </div>
+                <div class="col-sm-9">
+                  <p>Отличные фотографии, спасибо!</p>
+                  <small>kate</small>
+                  <small>Dec. 20, 2018, 4:31 p.m.</small>
+                </div>
+              </div>
+            </blockquote>
+          </div>
+          <!-- Quote 2 -->
+          {% for person in all_person %}
+          <div class="item">
+            <blockquote>
+              <div class="row">
+                <div class="col-sm-3 text-center">
+                  <img class="img-circle" src="http://lorempixel.com/128/128/abstract" style="width: 100px;height:100px;">
+                </div>
+                <div class="col-sm-9">
+                  <p>{{person.text}}</p>
+                  <small>{{person.author}}</small>
+                  <small>{{person.created_date}}</small>
+                </div>
+              </div>
+            </blockquote>
+          </div>
+          {% endfor %}
+
+        </div>
+
+        <!-- Carousel Buttons Next/Prev -->
+        <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
+        <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="{% static 'js/review.js' %}"></script>
 </html>

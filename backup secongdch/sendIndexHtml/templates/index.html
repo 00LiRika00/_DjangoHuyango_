@@ -26,7 +26,6 @@
     <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
-
     <!-- Custom CSS-->
     <link href="{% static 'css/general.css' %}" rel="stylesheet">
 
@@ -37,6 +36,7 @@
 	<link href="{% static 'css/style.css' %}" rel="stylesheet">
 	<link href="{% static 'css/animate.css'%}" rel="stylesheet">
   <link href="{% static 'css/BusCss.css'%}" rel="stylesheet">
+  <link href="{% static 'css/form.css' %}" rel="stylesheet">
 
 
 	<!-- Magnific Popup core CSS file -->
@@ -70,16 +70,16 @@
 			<h1 class="h1_home wow fadeIn" data-wow-delay="0.4s">RIA PHOTOGRAPHY</h1>
 			<h3 class="h3_home wow fadeIn" data-wow-delay="0.6s">Детский и семейный фотограф</h3>
 			<ul class="list-inline intro-social-buttons">
-				<li id="download" ><a href="#credits" class="btn  btn-lg mybutton_standard wow swing wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Цены</span></a>
+				<li id="download" ><a href="#prices" class="btn  btn-lg mybutton_standard wow swing wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Цены</span></a>
 				</li>
-				<li id="download" ><a href="#downloadlink" class="btn  btn-lg mybutton_standard wow swing wow fadeIn" data-wow-delay="1.2s"><span class="network-name">Портфолио</span></a>
+				<li id="download" ><a href="#portfolio" class="btn  btn-lg mybutton_standard wow swing wow fadeIn" data-wow-delay="1.2s"><span class="network-name">Портфолио</span></a>
 				</li>
 			</ul>
 		</div>
         <!-- /.container -->
 		<div class="col-xs-12 text-center abcen wow fadeIn">
 			<div class="button_down ">
-				<a class="imgcircle wow bounceInUp animated animated" data-wow-duration="1.5s"  href="#whatis" style="visibility: visible; animation-duration: 1.5s;">
+				<a class="imgcircle wow bounceInUp animated animated" data-wow-duration="1.5s"  href="#photosessions" style="visibility: visible; animation-duration: 1.5s;">
         <img class="img_scroll" src="{% static 'img/icon/circle.png' %}" alt=""> </a>
 			</div>
 		</div>
@@ -101,10 +101,10 @@
 			<div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
 				<ul class="nav navbar-nav">
 
-					<li class="menuItem"><a href="#useit">Обо мне</a></li>
-          <li class="menuItem"><a href="#whatis">Фотосессии</a></li>
-					<li class="menuItem"><a href="#screen">Портфолио</a></li>
-					<li class="menuItem"><a href="#credits">Цены</a></li>
+					<li class="menuItem"><a href="#about">Обо мне</a></li>
+          <li class="menuItem"><a href="#photosessions">Фотосессии</a></li>
+					<li class="menuItem"><a href="#portfolio">Портфолио</a></li>
+					<li class="menuItem"><a href="#prices">Цены</a></li>
 					<li class="menuItem"><a href="#contact">Контакты</a></li>
           {%if user.is_authenticated%}
             <li class="menuItem"><a href="/logout/#top">Выйти</a></li>
@@ -120,7 +120,7 @@
 	</nav>
 
   <!-- Use it -->
-    <div id ="useit" class="content-section-a">
+    <div id ="about" class="content-section-a">
 
         <div class="container">
 
@@ -212,7 +212,7 @@
     </div>
 
 	<!-- What is -->
-	<div id="whatis" class="content-section-b" style="border-top: 0">
+	<div id="photosessions" class="content-section-b" style="border-top: 0">
 		<div class="container">
 
 			<div class="col-md-6 col-md-offset-3 text-center wrap_title">
@@ -274,8 +274,13 @@
 
 
 	<!-- Screenshot -->
-	<div id="screen" class="content-section-b">
+	<div id="portfolio" class="content-section-b">
         <div class="container">
+          {% for photo in photos %}
+          {% if photo.image %}
+          <img src='{{ MEDIA_URL }}{{  photo.image }}' class='image-responsive' />
+          {% endif %}
+          {% endfor %}
           <div class="row" >
 			 <div class="col-md-6 col-md-offset-3 text-center wrap_title ">
 				<h2>Портфолио</h2>
@@ -285,17 +290,25 @@
 		    <div class="row wow bounceInUp" >
               <div id="owl-demo" class="owl-carousel">
 
-				<a href="{% static 'img/slide/1.png' %}" class="image-link">
-					<div class="item">
-						<img  class="img-responsive img-rounded" src="{% static 'img/slide/1.png' %}" alt="Owl Image">
-					</div>
-				</a>
+        <a href="{% static 'img/slide/1.png' %}" class="image-link">
+      		<div class="item">
+      				<img  class="img-responsive img-rounded" src="{% static 'img/slide/1.png' %}" alt="Owl Image">
+      		</div>
+      	</a>
 
-               <a href="{% static 'img/slide/2.png' %}" class="image-link">
+        <a href="{% static 'img/slide/2.png' %}" class="image-link">
+          <div class="item">
+              <img  class="img-responsive img-rounded" src="{% static 'img/slide/2.png' %}" alt="Owl Image">
+          </div>
+        </a>
+              <!--
+
+				<a href="{{  photo.image.url }}" class="image-link">
 					<div class="item">
-						<img  class="img-responsive img-rounded" src="{% static 'img/slide/2.png' %}" alt="Owl Image">
+						<img  class="img-responsive img-rounded" src="{{  photo.image.url }}" alt="Owl Image">
 					</div>
-				</a>
+				</a> -->
+
 
 				<a href="{% static 'img/slide/3.png' %}" class="image-link">
 					<div class="item">
@@ -323,14 +336,12 @@
               </div>
           </div>
         </div>
-
-
 	</div>
 
-	<div  class="content-section-c ">
+	<div id="important" class="content-section-c ">
 		<div class="container">
 			<div class="row">
-			<div class="col-md-6 col-md-offset-3 text-center white">
+			<div class="col-md-6 col-md-offset-3 text-center white" >
 				<h2>Важная информация</h2>
 				<p class="lead" style="margin-top:0">Обратите, пожалуйста, внимание на некоторые правила записи и дополнительную информацию о фотосессии:
 ​</p>
@@ -338,7 +349,7 @@
 			<div class="col-md-6 col-md-offset-3 text-center">
 				<div class="mockup-content">
 						<div class="morph-button wow pulse morph-button-inflow morph-button-inflow-1">
-							<button type="button "><span>Детальнее</span></button>
+							<button type="button " class="button buttonBlue"><span>Детальнее</span></button>
 							<div class="morph-content">
 								<div>
 									<div class="content-style-form content-style-form-4 ">
@@ -354,7 +365,7 @@
                       </script>
                       {%endif%}
                       <p style="color: #575757; text-align: justify;">Обратите, пожалуйста, внимание на некоторые правила записи и дополнительную информацию о фотосессии:
-​<br> 
+​<br>
 <br> • Бронирование фотосессии производится по предоплате 20%, оставшиеся 80% в день съемки.  (Бронирование фотосессии в студии по предоплате 50%)
 <br> • Дата съёмки обсуждается с фотографом заранее!
 <br> • Съёмку можно отменить/перенести не менее чем за день до фотосессии (для студии - не менее чем за 3 дня), в противном случае внесённая предоплата не возвращается.
@@ -377,19 +388,27 @@
 	</div>
 
 	<!-- Credits -->
-	<div id="credits" class="content-section-a">
+	<div id="prices" class="content-section-a">
 		<div class="container">
 			<div class="row">
 
 			<div class="col-md-6 col-md-offset-3 text-center wrap_title">
 				<h2>Цены</h2>
+        {%if user.is_authenticated%}
+        <a href="#important" class="btn" data-wow-delay="0.8s"><p class="lead" style="margin-top:0">Рассчитать подробую стоимость</p></a>
+        {% else %}
 				<p class="lead" style="margin-top:0">Зарегистрируйтесь, чтоб рассчитать стоимость более детально</p>
+        {% endif %}
 			 </div>
 
 				<div class="col-sm-6  block wow bounceIn">
 					<div class="row">
 						<div class="col-md-4 box-icon rotate">
-							<i class="fa fa-desktop fa-4x "> </i>
+							<i class="fa fa-3x ">
+                <strong class="fa-stack-3x" style="font-size:90%; margin-top: -30px; color: white;">
+                800<br><p>грн/час</p>
+                </strong>
+              </i>
 						</div>
 						<div class="col-md-8 box-ct">
 							<h3>Фотосессия в студии</h3>
@@ -400,7 +419,11 @@
 			  <div class="col-sm-6 block wow bounceIn">
 					<div class="row">
 					  <div class="col-md-4 box-icon rotate">
-						<i class="fa fa-picture-o fa-4x "> </i>
+              <i class="fa fa-3x ">
+                <strong class="fa-stack-3x" style="font-size:90%; margin-top: -30px; color: white;">
+                1400<br><p>грн/2 часa</p>
+                </strong>
+              </i>
 					  </div>
 					  <div class="col-md-8 box-ct">
 						<h3>Прогулочная фотосессия </h3>
@@ -414,18 +437,30 @@
 				<div class="col-sm-6  block wow bounceIn">
 					<div class="row">
 						<div class="col-md-4 box-icon rotate">
-							<i class="fa fa-magic fa-4x "> </i>
+              <i class="fa fa-3x ">
+                <strong class="fa-stack-3x" style="font-size:90%; margin-top: -30px; color: white;">
+                2000<br><p>от   грн</p>
+                </strong>
+              </i>
 						</div>
 						<div class="col-md-8 box-ct">
 							<h3>Все включено </h3>
+              {%if user.is_authenticated%}
+              <a href="#important" class="btn" data-wow-delay="0.8s"><p>Рассчитать подробую стоимость</p></a>
+              {% else %}
 							<p>Более подробный расчет стоимости доступен после регистрации.</p>
+              {% endif %}
 						</div>
 				  </div>
 			  </div>
 			  <div class="col-sm-6 block wow bounceIn">
 					<div class="row">
 					  <div class="col-md-4 box-icon rotate">
-						<i class="fa fa-heart fa-4x "> </i>
+              <i class="fa fa-3x ">
+                <strong class="fa-stack-3x" style="font-size:90%; margin-top: -30px; color: white;">
+                500<br><p>грн/час</p>
+                </strong>
+              </i>
 					  </div>
 					  <div class="col-md-8 box-ct">
 						<h3>Репортажная съемка</h3>
@@ -435,13 +470,15 @@
 			  </div>
 		  </div>
 		</div>
+    <br>
+    <br>
 	</div>
 
 	<!-- Banner Download -->
-	<div id="downloadlink" class="banner">
+	<div id="review" class="banner">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6 col-md-offset-3 text-center wrap_title">
+				<div class=" text-center wrap_title">
 
 
 
@@ -458,10 +495,36 @@
 
           <div id="contentArea" style = "color: black;"></div>
         {%else%}
-  				<h2>Отзывы</h2>
-  				<p class="lead" style="margin-top:0">Зарегистрируйтесь, чтоб оставить свой</p>
+
+          <script type="text/javascript">
+            window.onload = function(){
+              $(responceList).load('http://localhost:8000/list');
+              $(registerForm).load('http://localhost:8000/reg');
+              $(loginForm).load('http://localhost:8000/log');
+            };
+          </script>
+
+        	<div class="content-section-a">
+        		<div class="container">
+
+                <div class = "content" id = "footer">
+                  <a name="headline"></a>
+                  <div id="registerLoginDiv" class="regfor">
+
+                      <div id = "loginButton" class = "logbtn buttonBlue text-center" onclick = "hide('registerForm', 'loginForm');"><p>Вход</p></div>
+                      <div id = "regButton" class = "regbtn buttonBlue ext-center" onclick= "hide('loginForm', 'registerForm');"><p>Регистрация</p></div>
+
+                      <div id="registerForm" style = "color: black;"></div>
+                      <div id="loginForm" style = "color: black;"></div>
+
+                  </div>
+                </div>
+                </div>
+              </div>
+
+
         {%endif%}
-			 </div>
+
 			</div>
 		</div>
 	</div>
@@ -469,7 +532,7 @@
 
 
 
-  {%if user.is_authenticated%}
+<!--  {%if user.is_authenticated%}
   {%else%}
 
   <script type="text/javascript">
@@ -480,7 +543,7 @@
     };
   </script>
 
-	<div id="contact" class="content-section-a">
+	<div id="logreg" class="content-section-a">
 		<div class="container">
 			<div class="row">
         <div class = "content" id = "footer">
@@ -498,7 +561,7 @@
         </div>
       </div>
     </div>
-    {% endif %}
+    {% endif %} -->
 
 
 			<!--
@@ -566,8 +629,13 @@
         <div class="row">
           <div class="col-md-7">
             <h3 class="footer-title">Я в социальных сетях</h3>
-            <p> Здесь будут иконки
-            </p>
+              <ul class="menu" align="left">
+                <li><a href="https://www.facebook.com/RIA-Photography-271000453323721/"><i class="fa fa-facebook"></i>   RIA PHOTOGRAPHY</a></li>
+                <li><a href="https://twitter.com"><i class="fa fa-twitter"></i>   @_ria_photo</a></li>
+                <li><a href="https://www.instagram.com/_ria_photography_/"><i class="fa fa-instagram"></i>   @_ria_photography_</a></li>
+                <li><a href="https://www.youtube.com"><i class="fa fa-youtube-play"></i>   Ria Photo</a></li>
+              </ul>
+
 
 
           </div> <!-- /col-xs-7 -->
@@ -624,7 +692,17 @@
 	<script src="{% static 'js/uiMorphingButton_inflow.js' %}"></script>
 	<!-- Magnific Popup core JS file -->
 	<script src="{% static 'js/jquery.magnific-popup.js' %}"></script>
-
+  <script type="text/javascript">
+  // When the DOM is ready, run this function
+  $(document).ready(function() {
+    //Set the carousel options
+    $('#quote-carousel').carousel({
+      pause: true,
+      interval: 4000,
+    });
+  });
+  </script>
+  <script type="text/javascript" src="{% static 'js/form.js' %}"></script>
 
 </body>
 
